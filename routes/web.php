@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// BASIC ROUTING
 Route::get('/hello',function(){
     return 'Hello World';
 });
@@ -33,9 +34,10 @@ Route::get('/about',function(){
     return '2341720122 Rahmad Dwi Ferdyan';
 });
 
-Route::get('/user/{name}', function ($name) { 
-    return 'Nama saya '.$name; 
-}); 
+// PARAMETERS ROUTING
+// Route::get('/user/{name}', function ($name) { 
+//     return 'Nama saya '.$name; 
+// }); 
 
 Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) { 
     return 'Pos ke-'.$postId." Komentar ke-: ".$commentId; 
@@ -44,3 +46,11 @@ Route::get('/posts/{post}/comments/{comment}', function ($postId, $commentId) {
 Route::get('/articles/{id}', function($id) {
     return 'Halaman artikel dengan ID ' . $id;
 });
+
+// OPTIONAL PARAMETERS
+Route::get('/user/{name?}', function ($name='John'){
+    return 'Nama saya ' . $name;
+});
+
+
+
